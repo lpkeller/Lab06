@@ -69,8 +69,14 @@ class Controller
                     $this->tasks->set($task_index, $prior_task_value);
                     break;
                 }
-
+            case 'Sort Tasks':
+                $task_list = $this->tasks->getTaskArray();
+                if (count($task_list) > 2){
+                    $this->tasks->sort($task_list);
+                break; 
                 }
+
+        }
         $errors = $this->errors;
         $task_list = $this->tasks->getTaskArray();
         include './view/tasklist_page.php';

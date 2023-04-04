@@ -33,5 +33,9 @@ class TaskList
     public function set($index, $modified_task) {
         $this->tasks[$index] = $modified_task;
     }
+    
+    public function sort(){
+        return sort($this->tasks);
+    }
 }
 
