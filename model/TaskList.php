@@ -25,5 +25,13 @@ class TaskList
         unset($this->tasks[$index]);
         $this->tasks = array_values($this->tasks);
     }
+    
+    public function get($index) {
+        return $this->tasks[$index];
+    }
+    
+    public function set($index, $modified_task) {
+        $this->tasks[$index] = $modified_task;
+    }
 }
 
