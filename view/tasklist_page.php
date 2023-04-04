@@ -41,6 +41,8 @@
             <input type="text" name="newtask" id="newtask"><br>
             <label>&nbsp;</label>
             <input type="submit" name="action" value="Add Task"><br>
+            <input type="submit" name="action" value="Delete First Task"><br>
+            <input type="submit" name="action" value="Delete Last Task"><br>
         </form>
         <br>
 

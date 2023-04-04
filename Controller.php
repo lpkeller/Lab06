@@ -22,7 +22,7 @@ class Controller
                 } else {
                     $this->tasks->add($new_task);
                 }
-                break;
+                break;            
             case 'Delete Task':
                 $task_index = filter_input(INPUT_POST, 'taskid', FILTER_VALIDATE_INT);
                 if ($task_index === NULL || $task_index === FALSE) {
@@ -31,7 +31,19 @@ class Controller
                     $this->tasks->remove($task_index);
                 }
                 break;
-             case 'Modify Task':
+            case 'Delete First Task':
+                $task_list = $this->tasks->getTaskArray();
+                if (count($task_list) > 0){
+                    $this->tasks->delete_first_task();
+                }
+                break; 
+            case 'Delete Last Task':
+                 $task_list = $this->tasks->getTaskArray();
+                if (count($task_list) > 0){
+                    $this->tasks->delete_last_task();
+                }
+                break;
+            case 'Modify Task':
                 $task_index = filter_input(INPUT_POST, 'taskid', FILTER_VALIDATE_INT);
                 if ($task_index === NULL || $task_index === FALSE) {
                     $errors[] = 'The task cannot be modified.';

@@ -18,8 +18,18 @@ class TaskList
     }
     
     public function add($new_task) {
-        $this->tasks[] = $new_task;
+        array_unshift($this->tasks, $new_task);
     }
+    
+    public function delete_first_task() {        
+        array_shift($this->tasks);
+        $this->tasks = array_values($this->tasks);
+    }
+    
+    public function delete_last_task() {
+        array_pop($this->tasks);
+    }
+    
     
     public function remove($index) {
         unset($this->tasks[$index]);
